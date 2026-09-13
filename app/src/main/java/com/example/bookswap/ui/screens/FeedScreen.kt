@@ -61,13 +61,13 @@ fun FeedScreen(
         ) {
             FilterChip(
                 selected = vm.typeFilter == null,
-                onClick = { vm.setTypeFilter(null) },
+                onClick = { vm.applyTypeFilter(null) },
                 label = { Text("Все") }
             )
             ListingType.values().forEach { t ->
                 FilterChip(
                     selected = vm.typeFilter == t,
-                    onClick = { vm.setTypeFilter(if (vm.typeFilter == t) null else t) },
+                    onClick = { vm.applyTypeFilter(if (vm.typeFilter == t) null else t) },
                     label = { Text(t.label) }
                 )
             }
@@ -173,13 +173,13 @@ private fun ExtraFilters(vm: AppViewModel) {
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 FilterChip(
                     selected = vm.conditionFilter == null,
-                    onClick = { vm.setConditionFilter(null) },
+                    onClick = { vm.applyConditionFilter(null) },
                     label = { Text("Любое") }
                 )
                 BookCondition.values().forEach { c ->
                     FilterChip(
                         selected = vm.conditionFilter == c,
-                        onClick = { vm.setConditionFilter(if (vm.conditionFilter == c) null else c) },
+                        onClick = { vm.applyConditionFilter(if (vm.conditionFilter == c) null else c) },
                         label = { Text(c.label) }
                     )
                 }
@@ -189,7 +189,7 @@ private fun ExtraFilters(vm: AppViewModel) {
             Text("Цена до: ${vm.maxPrice.toInt()} ₽", style = MaterialTheme.typography.labelLarge)
             Slider(
                 value = vm.maxPrice,
-                onValueChange = { vm.setMaxPrice(it) },
+                onValueChange = { vm.applyMaxPrice(it) },
                 valueRange = 0f..2000f,
                 steps = 19
             )
