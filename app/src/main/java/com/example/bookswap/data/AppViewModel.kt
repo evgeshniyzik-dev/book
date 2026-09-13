@@ -32,10 +32,10 @@ class AppViewModel(
 
     // --- фильтры -------------------------------------------------------
 
-    fun setTypeFilter(type: ListingType?) { typeFilter = type }
-    fun setConditionFilter(c: BookCondition?) { conditionFilter = c }
+    fun applyTypeFilter(type: ListingType?) { typeFilter = type }
+    fun applyConditionFilter(c: BookCondition?) { conditionFilter = c }
     fun setSort(order: SortOrder) { sortOrder = order }
-    fun setMaxPrice(value: Float) { maxPrice = value }
+    fun applyMaxPrice(value: Float) { maxPrice = value }
     fun toggleViewMode() {
         viewMode = if (viewMode == ViewMode.LIST) ViewMode.GRID else ViewMode.LIST
     }
